@@ -1,52 +1,78 @@
-import React from "react";
-import Graph from "./components/graph"; // make sure the path is correct
+import React, { useState } from "react";
+import "./App.css";
+import { Grid } from "@mui/material";
 
-const App = () => {
-  // Sample data
-    const graphData = {
-      nodes: [
-        { id: "Node 1" },
-        { id: "Node 2" },
-        { id: "Node 3" },
-      ],
-      links: [
-        { source: "Node 1", target: "Node 2" },
-        { source: "Node 2", target: "Node 3" },
-      ],
-    };
+import Graph from "./components/Graph";
+import Names from "./components/Names";
+import Transactions from "./components/transactions";
+import TransactionTable from "./components/transactiontable";
+import OutputGraph from "./components/outputgraph";
 
-  // Sample config
-  const graphConfig = {
-    nodeHighlightBehavior: true,
-    node: {
-      color: "lightgreen",  // Node color
-      size: 300,            // Larger size for better visibility
-      highlightStrokeColor: "blue", // Color of node when highlighted
-      fontSize: 14,         // Font size for node text
-      highlightFontSize: 16, // Font size for highlighted node
-      fontWeight: "bold",   // Font weight for node text
-    },
-    link: {
-      highlightColor: "lightblue",  // Link highlight color
-      highlightWidth: 2,            // Link width when highlighted
-    },
-    directed: true,            // Directed graph (arrows showing direction)
-    height: 600,               // Height of the graph container
-    width: 800,                // Width of the graph container
-    d3: {
-      gravity: -300,           // Adjust gravity to spread out nodes
-    },
+function App() {
+  const [flag, setFlag] = useState(false);
+  const [allNames, setAllNames] = useState([]);
+  const [inputGraphData, setInputGraphData] = useState({});
+  const [outputList, setOutputList] = useState([]);
+  const [outputGraphData, setOutputGraphData] = useState({});
+  const [graphConfig, setGraphConfig] = useState({});
+
+  const [items, setItems] = useState([]);
+
+  const handleOpenForm = () => {
+    if (allNames.length > 1) {
+      setFlag(!false);
+    }
+    else {
+      alert("Atleast two people must be entered.")
+    }
   };
-  
+
   return (
-    <div style={{ padding: 20 }}>
-      <Graph
-        graphData={graphData}
-        graphHeader="Sample Network Graph"
-        graphConfig={graphConfig}
+    <div className="App">
+      <Names
+        flag={flag}
+        handleOpenForm={handleOpenForm}
+        allNames={allNames}
+        setAllNames={setAllNames}
       />
+      {flag ? (
+        <>
+          <Grid container>
+            <Transactions
+              flag={flag}
+              allNames={allNames}
+              items={items}
+              setItems={setItems}
+              inputGraphData={inputGraphData}
+              setInputGraphData={setInputGraphData}
+              setOutputList={setOutputList}
+              setOutputGraphData={setOutputGraphData}
+              setGraphConfig={setGraphConfig}
+            />
+            <Graph
+              graphData={inputGraphData}
+              graphHeader="Transactions Graph"
+              graphConfig={graphConfig}
+            />
+          </Grid>
+          {outputList && outputList.length ? (
+            <Grid container>
+              <Grid item xs={12} md={6}>
+                <div className="form">
+                  <TransactionTable isInput={false} items={outputList} tableHeader="Simplified Transactions"/>
+                </div>
+              </Grid>
+              <OutputGraph
+                graphData={outputGraphData}
+                graphHeader={"Simplified Graph"}
+                graphConfig={graphConfig}
+              />
+            </Grid>
+          ) : null}
+        </>
+      ) : null}
     </div>
   );
-};
+}
 
 export default App;
