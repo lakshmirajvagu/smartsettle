@@ -1,5 +1,5 @@
 import React from "react";
-import "./AboutUs.css"; // Add styling for About Us
+import "./aboutus.css"; // Add styling for About Us
 import myPic from '../assets/cam.jpg'; // Import your picture here
 
 const AboutUs = () => (
