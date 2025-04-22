@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Grid } from "@mui/material";
+import { Grid, Button } from "@mui/material";
 
 import Graph from "./components/graph";
 import Names from "./components/Names";
 import Transactions from "./components/transactions";
 import TransactionTable from "./components/transactiontable";
 import OutputGraph from "./components/outputgraph";
+import { generatePDF } from "./utils/generatePDF";
 
 function App() {
   const [flag, setFlag] = useState(false);
@@ -28,11 +29,28 @@ function App() {
     }
   };
 
+  const handleDownloadPDF = () => {
+    console.log("Output List for PDF:", outputList);
+    console.log("Items for PDF:", items);
+
+    if (outputList.length > 0) {
+      generatePDF(outputList, items);
+    }
+  };
+
   return (
     <div className="App">
-      {/* Header Section */}
+      {/* Sticky Header with Button */}
       <header className="app-header">
-        <h1>Smart Split</h1>
+        <h1 className="app-title">Smart Split</h1>
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "#fff", color: "#1a73e8", fontWeight: "bold" }}
+          onClick={handleDownloadPDF}
+          disabled={outputList.length === 0}
+        >
+          Download PDF
+        </Button>
       </header>
 
       <Names
@@ -44,7 +62,6 @@ function App() {
 
       {flag && (
         <>
-          {/* Input Section */}
           <Grid container spacing={3} className="input-section-container">
             <Grid item xs={12} md={6}>
               <div className="input-box">
@@ -71,13 +88,11 @@ function App() {
             </Grid>
           </Grid>
 
-          {/* Output Section */}
           {outputList.length > 0 && (
             <Grid container spacing={3} className="output-section-container">
               <Grid item xs={12} md={6}>
-                
-                <div className="input-box">
-                <h3>Simplified Transactions</h3>
+                <div className="input-box simplified-transactions">
+                  <h3>Simplified Transactions</h3>
                   <TransactionTable
                     isInput={false}
                     items={outputList}
@@ -104,3 +119,4 @@ function App() {
 }
 
 export default App;
+  
