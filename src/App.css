@@ -1,7 +1,8 @@
+/* General reset for margin, padding, and font */
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 98.8%;
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f4f6f9;
@@ -27,15 +28,17 @@ html, body {
   margin: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between; /* Pushes title to left, button to right */
-  align-items: center;
+  justify-content: center; /* Center the title horizontally */
+  align-items: center; /* Center the title vertically */
   flex-shrink: 0;
 }
 
+/* Centered title */
 .app-title {
   font-size: 2rem;
   font-weight: 600;
   margin: 0;
+  text-align: center; /* Ensure title text is centered */
 }
 
 /* Input + Output Section Layout */
@@ -73,27 +76,89 @@ html, body {
   height: 100%;
 }
 
-/* Responsive */
+/* Header Button Styling */
+.nav-buttons {
+  display: flex;
+}
+
+.app-header {
+  position: sticky; /* Make the header sticky */
+  top: 0;           /* Stay at the top of the viewport */
+  z-index: 1000;    /* Ensure it stays on top of other content */
+  background-color: #1a73e8;
+  padding: 24px 16px;
+  text-align: center;
+  color: white;
+}
+
+/* Top-right button group */
+.header-buttons {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Matching button style */
+.header-button {
+  background-color: #fff !important;
+  color: #1a73e8 !important;
+  font-weight: bold !important;
+  text-transform: none !important;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.header-button:hover {
+  background-color: #1a73e8 !important;
+  color: white !important;
+  transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+/* For mobile responsiveness */
 @media (max-width: 768px) {
+  .app-header {
+    padding: 15px 10px; /* Reduced padding for smaller screens */
+  }
+
+  .app-title {
+    font-size: 24px; /* Make title smaller on mobile */
+  }
+
+  .header-buttons {
+    position: static; /* Stack buttons vertically on mobile */
+    display: block;
+    gap: 10px;
+    width: 100%; /* Take up full width */
+    text-align: center; /* Center the buttons */
+  }
+
+  .header-button {
+    width: 100%; /* Make buttons full width on mobile */
+    padding: 10px 0; /* Larger padding for touch devices */
+    text-align: center;
+  }
+
+  /* Make input boxes and graph boxes responsive */
+  .input-box, .graph-box {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .graph-wrapper {
+    height: 250px; /* Set a fixed height for smaller screens */
+  }
+
+  /* Adjust the layout of input and output sections for small screens */
   .input-section-container,
   .output-section-container {
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-  }
-
-  .input-box,
-  .graph-box {
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 20px;
-  }
-
-  .graph-wrapper {
-    height: 250px;
-  }
-
-  h3 {
-    font-size: 1rem;
+    gap: 20px;
   }
 }
