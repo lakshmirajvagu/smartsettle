@@ -6,15 +6,14 @@ import TransactionOutput from "./transactionoutput";
 const TransactionTable = (props) => {
   return (
     <>
-      <div>
-        <h4>{props.tableHeader}</h4>
-      </div>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHeader isInput={props.isInput} />
           <TableBody>
-            {props.items.length > 0 &&
-              props.items.map((row) => <TransactionOutput row={row} />)}
+            {props.items && props.items.length > 0 &&
+              props.items.map((row) => (
+                <TransactionOutput key={row.id} row={row} />
+              ))}
             {props.isInput ? (
               <TransactionInputRow
                 allNames={props.allNames}
