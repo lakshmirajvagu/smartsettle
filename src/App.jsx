@@ -3,7 +3,7 @@ import "./App.css";
 import { Grid, Button } from "@mui/material";
 
 import Graph from "./components/graph";
-import Names from "./components/Names";
+import Names from "./components/names";
 import Transactions from "./components/transactions";
 import TransactionTable from "./components/transactiontable";
 import OutputGraph from "./components/outputgraph";
@@ -119,4 +119,3 @@ function App() {
 }
 
 export default App;
-  

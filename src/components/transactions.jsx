@@ -4,7 +4,7 @@ import TransactionTable from "./transactiontable";
 import Button from "./button";
 import Expense from "../classes/expense";
 import { generateNodes, generateLinks } from "../utils/GraphConfig";
-import { minimiseCashFlow } from "../utils/minimiseCashFlow";
+import { minimiseCashFlow } from "../utils/minimisecashflow";
 import {config} from "../utils/GraphConfig"
 
 const Transactions = (props) => {
