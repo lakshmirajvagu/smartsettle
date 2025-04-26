@@ -22,7 +22,7 @@ https://1drv.ms/v/c/eb1458427a941066/EXr81D-RfJZCkCEyr7fsLDgBy5AcI9Pn4MVcu-7O7D9
 
 ## 📦 How to Clone & Run
 
-```bash
+
 # Clone the repository
 git clone https://github.com/your-username/smartsettle.git
 cd smartsettle
@@ -39,6 +39,7 @@ npm run build
 # Preview production build locally
 npm run preview
 
+```bash
 #🏛️ Project Structure
 
 smartsettle/
@@ -68,29 +69,37 @@ smartsettle/
 
 
 ---
+```
 
 # 🛠 Features
 
-- 📈 Expense Splitter — Effortlessly split bills and manage group expenses.
-- ⚡ Minimum Transactions — Settle payments with the fewest number of transactions.
-- 📄 Downloadable PDFs
+- 📈 **Expense Splitter** — Effortlessly split bills and manage group expenses.
+- ⚡ **Minimum Transactions** — Settle payments with the fewest number of transactions.
+- 📄 **Downloadable PDFs**
   - 📝 Export Input Transactions
   - 🧾 Export Simplified Settlements
-- 🧹 Clean UI — Simple, minimalistic, and intuitive user experience.
-- 🚀 Real-time Settlements — Instantly calculate who pays whom for faster settlements.
+- 🧹 **Clean UI** — Simple, minimalistic, and intuitive user experience.
+- 🚀 **Real-time Settlements** — Instantly calculate who pays whom for faster settlements.
 
 ---
 
 # 📚 Tech Stack
 
-- ⚛️ Frontend Framework — React.js (v19)
-- ⚡ Bundler — Vite (v6)
-- 🎨 UI Library — Material-UI (MUI)
-- 🧠 Graph Visualization
+- ⚛️ **Frontend Framework** — React.js (v19)
+- ⚡ **Bundler** — Vite (v6)
+- 🎨 **UI Library** — Material-UI (MUI)
+- 🧠 **Graph Visualization**
+  - react-force-graph-2d
   - react-force-graph-3d
-- 🌌 3D Support — three.js
-- 🔧 Graph Utilities— d3 (drag, force, zoom, shape, selection)
-- 📄 PDF Generation — jsPDF, jsPDF-AutoTable
+- 🌌 **3D Support** — three.js
+- 🔧 **Graph Utilities** — d3 (drag, force, zoom, shape, selection)
+- 🧭 **Routing** — react-router-dom (v7)
+- 🛤️ **Flow Charts** — reactflow
+- 📄 **PDF Generation** — jsPDF, jsPDF-AutoTable
+- 🧹 **Linting** — ESLint
+
+---
+
 
 ## How does it work?
 Approach to solving this problem:
