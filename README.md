@@ -1,12 +1,101 @@
-# React + Vite
+# 🧾 Smart Settle
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Smart Settle helps you split expenses easily among friends or colleagues!  
+It ensures everyone who paid gets reimbursed correctly — using the **minimum number of transactions**.
 
-Currently, two official plugins are available:
+✅ **Bonus Feature:**  
+Download a PDF copy of:
+- 📄 **Input Transactions**
+- 📄 **Simplified Settlements**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Demo
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[👉 Try Smart Settle here](https://smartsettle-d5ay.vercel.app/)
+
+---
+
+## Video
+
+
+
+## 📦 How to Clone & Run
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/smartsettle.git
+cd smartsettle
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+
+#🏛️ Project Structure
+
+smartsettle/
+├── dist/
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── classes/
+│   ├── components/
+│   └── utils/
+│       ├── generatePDF.js
+│       ├── GraphConfig.js
+│       └── minimisecashflow.js
+├── App.css
+├── App.jsx
+├── index.css
+├── index.html
+├── main.jsx
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── README.md
+├── .gitignore
+├── eslint.config.js
+
+
+
+---
+
+## 🛠 Features
+
+- 📈 **Expense Splitter:** Split bills and group expenses easily.
+- ⚡ **Minimum Transactions:** Settle payments with the fewest possible transactions.
+- 📄 **Downloadable PDFs:**
+  - Input Transactions
+  - Simplified Settlements
+- 🧹 **Clean UI:** Simple, minimalistic, and intuitive experience.
+- 🚀 **Real-time Settlements:** Instantly calculate who pays whom.
+
+---
+
+## 📚 Tech Stack
+
+- **Frontend Framework:** React.js (v19)
+- **Bundler:** Vite (v6)
+- **UI Library:** Material-UI (MUI)
+- **Graph Visualization:**
+  - react-force-graph-2d
+  - react-force-graph-3d
+- **3D Support:** three.js
+- **Graph Utilities:** d3 (drag, force, zoom, shape, selection)
+- **Routing:** react-router-dom (v7)
+- **Flow Charts:** reactflow
+- **PDF Generation:** jsPDF, jsPDF-AutoTable
+- **Linting:** ESLint
+
+---
+
+# ✨ Made with ❤️ by Lakshmi Raj
